@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Filmoteka.Controllers
 {
@@ -13,18 +9,26 @@ namespace Filmoteka.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Movies()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return RedirectToAction("Index", "Movies");
         }
 
-        public ActionResult Contact()
+        public ActionResult Genres()
         {
-            ViewBag.Message = "Your contact page.";
+            return RedirectToAction("Index", "Genres");
 
-            return View();
+        }
+
+        public ActionResult Actors()
+        {
+            return RedirectToAction("Index", "Actors");
+        }
+
+        public ActionResult Directors()
+        {
+            return RedirectToAction("Index", "Directors");
+
         }
     }
 }

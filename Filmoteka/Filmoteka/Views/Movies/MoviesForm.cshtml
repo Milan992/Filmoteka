@@ -1,0 +1,69 @@
+﻿@model Filmoteka.ViewModels.MoviesFormViewModel
+
+@{
+    ViewBag.Title = "Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie</h2>
+
+@using (Html.BeginForm("Save", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Movie.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Movie.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Movie.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.Movie.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Movie.ReleaseDate, new { @type = "date", @Value = DateTime.Now.ToString("yyyy-MM-dd"), @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Movie.ReleaseDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Movie.Genre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Movie.GenreId, new SelectList(Model.Genres, "Id", "GenreName"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Movie.Genre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Movie.Director, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Movie.DirectorId, new SelectList(Model.Directors, "Id", "Person.LastName"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Movie.Genre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Movie.Poster, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input class="btn" type="file" name="file" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.HiddenFor(m => m.Movie.Id)
+            <input type="submit" value="Save" onclick="return confirm('Are you sure you want to save this movie?')" class="btn btn-lg btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ValidationSummary()
+    <a href="@Url.Action("Index", "Movies")" class="btn btn-sm btn-primary">@Html.Partial("_ListButtonPartial") Back to List</a>
+</div>
+
+
+

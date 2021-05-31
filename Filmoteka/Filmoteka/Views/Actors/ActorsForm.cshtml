@@ -1,0 +1,52 @@
+﻿@model Filmoteka.ViewModels.ActorsFormViewModel
+
+@{
+    ViewBag.Title = "Actor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actor</h2>
+
+@using (Html.BeginForm("Save", "Actors"))
+{
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Person.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Person.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Person.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Person.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Person.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Person.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Actor.Movie, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Actor.MovieId, new SelectList(Model.Movies, "Id", "Title"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Actor.Movie, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.HiddenFor(m => m.Person.Id)
+            <input type="submit" value="Save" onclick="return confirm('Are you sure you want to save this actor?')" class="btn btn-lg btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    <a href="@Url.Action("Index", "Actors")" class="btn btn-sm btn-primary">@Html.Partial("_ListButtonPartial") Back to List</a>
+</div>
+
+
