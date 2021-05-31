@@ -97,3 +97,6 @@ D:\Milan\Plativoo\Filmoteka\Filmoteka\Filmoteka\Filmoteka\obj\Debug\Filmoteka.Mi
 D:\Milan\Plativoo\Filmoteka\Filmoteka\Filmoteka\Filmoteka\obj\Debug\Filmoteka.Migrations.AddMovieToActor.resources
 D:\Milan\Plativoo\Filmoteka\Filmoteka\Filmoteka\Filmoteka\obj\Debug\Filmoteka.Migrations.RemoveMovieActor.resources
 D:\Milan\Plativoo\Filmoteka\Filmoteka\Filmoteka\Filmoteka\obj\Debug\Filmoteka.Migrations.AddReleaseDateToMovie.resources
+D:\Milan\Plativoo\Filmoteka\Filmoteka\Filmoteka\Filmoteka\obj\Debug\Filmoteka.Migrations.MovieGenreNullable.resources
+D:\Milan\Plativoo\Filmoteka\Filmoteka\Filmoteka\Filmoteka\obj\Debug\Filmoteka.Migrations.GenreMovieNotNull.resources
+D:\Milan\Plativoo\Filmoteka\Filmoteka\Filmoteka\Filmoteka\obj\Debug\Filmoteka.Migrations.FixMovieGenreId.resources

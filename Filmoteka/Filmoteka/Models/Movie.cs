@@ -16,13 +16,13 @@ namespace Filmoteka.Models
         public DateTime ReleaseDate { get; set; }
 
         public string Poster { get; set; }
-
+        
         public int GenreId { get; set; }
-
+        
         public int DirectorId { get; set; }
-
+        
         public Genre Genre { get; set; }
-
+        
         public Director Director { get; set; }
 
         public bool IsDeleted { get; set; }

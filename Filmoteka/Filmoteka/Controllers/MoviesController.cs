@@ -106,7 +106,13 @@ namespace Filmoteka.Controllers
                 movieInDb.Poster = moviesFormViewModel.Movie.Poster;
             }
 
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch 
+            {
+            }
 
             // Save poster file to app data folder and save it's adress in database
             if (moviesFormViewModel.File != null && moviesFormViewModel.File.ContentLength > 0)

@@ -201,6 +201,18 @@
     <Compile Include="Migrations\202105310857317_AddReleaseDateToMovie.Designer.cs">
       <DependentUpon>202105310857317_AddReleaseDateToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105311951513_MovieGenreNullable.cs" />
+    <Compile Include="Migrations\202105311951513_MovieGenreNullable.Designer.cs">
+      <DependentUpon>202105311951513_MovieGenreNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311956366_GenreMovieNotNull.cs" />
+    <Compile Include="Migrations\202105311956366_GenreMovieNotNull.Designer.cs">
+      <DependentUpon>202105311956366_GenreMovieNotNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105312006348_FixMovieGenreId.cs" />
+    <Compile Include="Migrations\202105312006348_FixMovieGenreId.Designer.cs">
+      <DependentUpon>202105312006348_FixMovieGenreId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\Director.cs" />
@@ -549,6 +561,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105310857317_AddReleaseDateToMovie.resx">
       <DependentUpon>202105310857317_AddReleaseDateToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311951513_MovieGenreNullable.resx">
+      <DependentUpon>202105311951513_MovieGenreNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311956366_GenreMovieNotNull.resx">
+      <DependentUpon>202105311956366_GenreMovieNotNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105312006348_FixMovieGenreId.resx">
+      <DependentUpon>202105312006348_FixMovieGenreId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
