@@ -3,14 +3,14 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var imagePath = "~/../../../App_Data/Posters/" + @Model.Movie.Poster;
+    var imagePath = "../../movies/document/" + @Model.Movie.Id;
 }
 
 <h2>Movie</h2>
 
 <div class="col-md-6"><h1>@Model.Movie.Title (@Model.Movie.ReleaseDate.ToString("dd/MM/yyyy"))</h1></div>
 
-<div class="col-md-6"><img src=@imagePath /></div>
+<div class="col-md-6" style="border:1px solid black"><img src=@imagePath /></div>
 
 <div class="col-md-12"><h3>Genre: @Model.Movie.Genre.GenreName</h3></div>
 

@@ -70,6 +70,11 @@ namespace Filmoteka.Controllers
 
             return View("Details", movieDetailsViewModel);
         }
+        
+        public ActionResult Document(int id)
+        {
+            return File(@"../../App_Data/Posters/" + id, ".file");
+        }
 
         public ActionResult Save(MoviesFormViewModel moviesFormViewModel)
         {
@@ -79,16 +84,6 @@ namespace Filmoteka.Controllers
                 moviesFormViewModel.Directors = context.Directors.Include(p => p.Person).Where(d => d.Person.IsDeleted == false).ToList();
 
                 return View("MoviesForm", moviesFormViewModel);
-            }
-
-            // Save poster file to app data folder and save it's adress in database
-            if (moviesFormViewModel.File != null && moviesFormViewModel.File.ContentLength > 0)
-            {
-                var path = Server.MapPath("~/App_Data/Posters/") + moviesFormViewModel.File.FileName;
-
-                moviesFormViewModel.File.SaveAs(path);
-
-                moviesFormViewModel.Movie.Poster = moviesFormViewModel.File.FileName;
             }
 
             if (moviesFormViewModel.Movie.Id == 0)
@@ -112,6 +107,14 @@ namespace Filmoteka.Controllers
             }
 
             context.SaveChanges();
+
+            // Save poster file to app data folder and save it's adress in database
+            if (moviesFormViewModel.File != null && moviesFormViewModel.File.ContentLength > 0)
+            {
+                var path = Server.MapPath("~/App_Data/Posters/") + moviesFormViewModel.Movie.Id;
+
+                moviesFormViewModel.File.SaveAs(path);
+            }
 
             return RedirectToAction("Index", "Movies");
         }
